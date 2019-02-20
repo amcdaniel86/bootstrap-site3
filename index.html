@@ -92,6 +92,97 @@
     </div>
   </section>
 
+<!-- HOME ICON SECTION-->
+<section id="home-icons" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 text-center">
+        <i class="fas fa-cog fa-3x mb-2"></i>
+        <h3>Turning Gears</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, esse!</p>
+      </div>
+      <div class="col-md-4 mb-4 text-center">
+        <i class="fas fa-cloud fa-3x mb-2"></i>
+        <h3>Sending Data</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, molestias!</p>
+      </div>
+      <div class="col-md-4 mb-4 text-center">
+        <i class="fas fa-cart-plus fa-3x mb-2"></i>
+        <h3>Making Money</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quisquam!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME HEADING SECTION -->
+<section id="home-heading" class="p-5">
+  <div class="dark-overlay">
+    <div class="row">
+      <div class="col">
+        <div class="container pt-5">
+          <h1>Are You Ready To Get Started?</h1>
+          <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti a quos laborum illum quam consequatur pariatur soluta voluptatum. Soluta, a.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO SECTION -->
+<section id="info" class="py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 align-self-center">
+        <h3>Lorem, ipsum.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis a eligendi ad enim sunt laudantium, hic voluptatibus voluptatem ratione necessitatibus.</p>
+        <a href="about.html" class="btn btn-outline-danger btn-lg">Learn More</a>
+      </div>
+      <div class="col-md-6">
+        <img src="img/laptop.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PLAY -->
+<section id="video-play">
+  <div class="dark-overlay">
+    <div class="row">
+      <div class="col">
+        <div class="container p-5">
+          <a href="#" class="video" data-video="https://www.youtube.com/embed/wfWIs2gFTAM" data-toggle="modal" data-target="#videoModal"><i class="fas fa-play fa-3x"></i>
+          </a>
+          <h1>See What We Do</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal fade" id="videoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+        <iframe src="" frameborder="0" height="350" width="100%" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- jQuery minified -->
@@ -108,6 +199,27 @@
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear())
+
+    // Configure Carousel Speed
+    $('.carousel').carousel({
+      interval: 6000,
+      pause: 'hover'
+    });
+
+    // Video Play
+    $(function () {
+      // Auto play modal video
+      $(".video").click(function () {
+        var theModal = $(this).data("target"),
+          videoSRC = $(this).attr("data-video"),
+          videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
+          $(theModal + ' iframe').attr('src', videoSRCauto);
+          $(theModal + ' button.close').click(function () {
+            $(theModal + ' iframe').attr('src', videoSRC);
+          });
+      });
+    });
+    
 </script>
 </body>
 </html>
